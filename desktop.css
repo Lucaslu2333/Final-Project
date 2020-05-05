@@ -1,0 +1,683 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes floating {
+    0% {transform: translate(0, -30px);}
+    50% {transform: translate(0,-10px);}
+    100% {transform: translate(0, -30px);}
+}
+
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.homepage {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+}
+
+.hamburger-part {
+    width: 40vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#hamburger-self {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hamburger-part img {
+    width: 300px;
+    margin-bottom: 3px;
+    transition: all 0.5s ease-in-out;
+}
+
+#cheese {
+    margin-bottom: -5px;
+    z-index: 1;
+}
+
+.hamburger:hover {
+    width: 300px;
+    margin-bottom: 30px;
+    transition: all 0.5s ease-in-out;
+}
+
+#cheese:hover {
+    margin-bottom: 25px;
+    z-index: 1;
+    transition: all 0.5s ease-in-out;
+}
+
+#bread:hover {
+    margin-top: 30px;
+    transition: all 0.5s ease-in-out;
+}
+
+.search-part {
+    width: 60vw;
+    height: 100vh;
+
+    background-color: #F2E2CC;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.search-part img {
+    width: 85px;
+    transition: all 0.2s ease-in-out;
+}
+
+.search-part img:hover {
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.45));
+    transition: all 0.2s ease-in-out;
+}
+
+#searchbar {
+    position: absolute;
+    display: none;
+
+    width: 20vw;
+    height: 60px;
+    outline-style: none ;
+    border: none; 
+    border-radius: 100px;
+    padding-left: 30px;
+    padding-right: 20px;
+    font-size: 15px;
+}
+
+.guess {
+    position: absolute;
+    left: 58vw;
+    top: 60vh;
+    margin: auto 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.guess-word {
+    opacity: 0;
+    width: 20vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    font-size: 14px;
+    background-color: rgb(245, 213, 155);
+    color: rgb(255, 255, 255);
+    border-radius: 100px;
+    margin: 5px;
+    padding: 10px 20px;
+
+    transition: all 0.2s ease-in-out;
+}
+
+.guess-word:hover {
+    background-color: rgb(255, 203, 107);
+    color: rgb(255, 255, 255);
+    transition: all 0.2s ease-in-out;
+}
+
+.loading {
+    position: absolute;
+    left: 100vw;
+    width: 100vw;
+    height: 100vh;
+    background-color: #F2E2CC;
+}
+
+.loading video{
+    position: absolute;
+    width: 30vw;
+    left: 35vw;
+    top: 20vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes pointLeft {
+    0% {transform: translate(0, 0);}
+    25% {transform: translate(-60px, 0)}
+    35% {transform: translate(-40px, 0)}
+    45% {transform: translate(-60px, 0)}
+    100% {transform: translate(0, 0);}
+}
+
+.content {
+    position: absolute;
+    top: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: start;
+    background-image: linear-gradient(to top right, rgb(51, 169, 248), rgb(122, 236, 211));
+}
+
+#hamburger-self2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+    height: 100vh;
+    width: 22vw;
+}
+
+.hamburger2 {
+    cursor: pointer;
+    position: relative;
+    width: 22vw;
+    left: -7.5vw;
+    margin: 25px auto;
+    
+    transition: all 0.5s ease-in-out;
+}
+
+.hamburger2:hover {
+    left: -2vw;
+    
+    transition: all 0.5s ease-in-out;
+}
+
+.data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 65vw;
+    height: 100vh;
+}
+
+#instruction {
+    font-size: 24px;
+    font-weight: lighter;
+    color: rgb(255, 255, 255);
+    filter: drop-shadow(0 0 10px rgba(32, 32, 32, 0.26));
+
+    animation: pointLeft ease-in-out 2s forwards infinite;
+}
+
+.info-sign {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 13vw;
+    height: 100vh;
+}
+
+.info {
+    cursor: pointer;
+    text-align: center;
+    font-size: 18px;
+    margin: 35px;
+    color: rgb(255, 255, 255);
+    filter: drop-shadow(0 0 10px rgba(32, 32, 32, 0.26));
+}
+
+
+
+
+
+
+
+
+
+#cal-box {
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 0px;
+    border-radius: 20px;
+    position: absolute;
+    bottom: 15vh;
+    left: 55vw;
+    height: 40vh;
+    width: 7.5vw;
+    background-image: linear-gradient(to top right, rgb(255, 75, 75), rgb(255, 213, 122));
+}
+
+#cal-apple-box {
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 0px;
+    border-radius: 20px;
+    position: absolute;
+    bottom: 15vh;
+    left: 72.5vw;
+    height: 40vh;
+    width: 7.5vw;
+    background-image: linear-gradient(to top right, rgb(192, 255, 75), rgb(122, 255, 173));
+}
+
+#cal-box p, #cal-apple-box p {
+    opacity: 0;
+}
+
+#cal-box-ex {
+    opacity: 0;
+    color: white;
+    width: 18vw;
+    text-align: center;
+    position: absolute;
+    bottom: 8vh;
+    left: 50vw;
+}
+
+#cal-apple-box-ex {
+    opacity: 0;
+    color: white;
+    width: 18vw;
+    text-align: center;
+    position: absolute;
+    bottom: 8vh;
+    left: 67.5vw;
+}
+
+#cal-hover {
+    cursor: pointer;
+    opacity: 0;
+    position: absolute;
+    width: 50px;
+    right: 7.5vw;
+}
+
+.calories img:hover {
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.609));
+}
+
+#cal-hover-info {
+    display: none;
+    position: absolute;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.404);
+    border-radius: 30px;
+    left: 50vw;
+    top: 45vh;
+    width: 30vw;
+    padding: 30px;
+}
+
+
+
+
+
+#vit-a-box {
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 0px;
+    border-radius: 20px;
+    position: absolute;
+    bottom: 15vh;
+    left: 55vw;
+    height: 40vh;
+    width: 7.5vw;
+    background-image: linear-gradient(to top right, rgb(111, 66, 216), rgb(75, 147, 255));
+}
+
+#vit-c-box {
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 0px;
+    border-radius: 20px;
+    position: absolute;
+    bottom: 15vh;
+    left: 72.5vw;
+    height: 40vh;
+    width: 7.5vw;
+    background-image: linear-gradient(to top right, rgb(111, 66, 216), rgb(75, 147, 255));
+}
+
+#vit-a-box p, #vit-c-box p {
+    opacity: 0;
+}
+
+#vit-a-box-ex {
+    opacity: 0;
+    color: white;
+    width: 18vw;
+    text-align: center;
+    position: absolute;
+    bottom: 8vh;
+    left: 50vw;
+}
+
+#vit-c-box-ex {
+    opacity: 0;
+    color: white;
+    width: 18vw;
+    text-align: center;
+    position: absolute;
+    bottom: 8vh;
+    left: 67.5vw;
+}
+
+#vit-hover {
+    cursor: pointer;
+    opacity: 0;
+    position: absolute;
+    width: 50px;
+    right: 7.5vw;
+}
+
+#vit-hover:hover {
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.609));
+}
+
+#vit-hover-info {
+    display: none;
+    position: absolute;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.404);
+    border-radius: 30px;
+    left: 50vw;
+    top: 45vh;;
+    width: 30vw;
+    padding: 30px;
+}
+
+
+
+
+
+
+
+#pro-box {
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 0px;
+    border-radius: 20px;
+    position: absolute;
+    bottom: 15vh;
+    left: 55vw;
+    height: 40vh;
+    width: 7.5vw;
+    background-image: linear-gradient(to top right, rgb(255, 75, 75), rgb(255, 213, 122));
+}
+
+#pro-egg-box {
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 0px;
+    border-radius: 20px;
+    position: absolute;
+    bottom: 15vh;
+    left: 72.5vw;
+    height: 40vh;
+    width: 7.5vw;
+    background-image: linear-gradient(to top right, rgb(192, 255, 75), rgb(122, 255, 173));
+}
+
+#pro-box p, #pro-egg-box p {
+    opacity: 0;
+}
+
+#pro-box-ex {
+    opacity: 0;
+    color: white;
+    width: 18vw;
+    text-align: center;
+    position: absolute;
+    bottom: 8vh;
+    left: 50vw;
+}
+
+#pro-egg-box-ex {
+    opacity: 0;
+    color: white;
+    width: 18vw;
+    text-align: center;
+    position: absolute;
+    bottom: 8vh;
+    left: 67.5vw;
+}
+
+#pro-hover {
+    cursor: pointer;
+    opacity: 0;
+    position: absolute;
+    width: 50px;
+    right: 7.5vw;
+}
+
+.protein img:hover {
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.609));
+}
+
+#pro-hover-info {
+    display: none;
+    position: absolute;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.404);
+    border-radius: 30px;
+    left: 50vw;
+    top: 45vh;
+    width: 30vw;
+    padding: 30px;
+}
+
+
+
+
+
+
+#fat-box {
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 0px;
+    border-radius: 20px;
+    position: absolute;
+    bottom: 15vh;
+    left: 55vw;
+    height: 40vh;
+    width: 7.5vw;
+    background-image: linear-gradient(to top right, rgb(255, 75, 75), rgb(255, 213, 122));
+}
+
+#fat-egg-box {
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 0px;
+    border-radius: 20px;
+    position: absolute;
+    bottom: 15vh;
+    left: 72.5vw;
+    height: 40vh;
+    width: 7.5vw;
+    background-image: linear-gradient(to top right, rgb(192, 255, 75), rgb(122, 255, 173));
+}
+
+#fat-box p, #fat-egg-box p {
+    opacity: 0;
+}
+
+#fat-box-ex {
+    opacity: 0;
+    color: white;
+    width: 18vw;
+    text-align: center;
+    position: absolute;
+    bottom: 8vh;
+    left: 50vw;
+}
+
+#fat-egg-box-ex {
+    opacity: 0;
+    color: white;
+    width: 18vw;
+    text-align: center;
+    position: absolute;
+    bottom: 8vh;
+    left: 67.5vw;
+}
+
+#fat-hover {
+    cursor: pointer;
+    opacity: 0;
+    position: absolute;
+    width: 50px;
+    right: 7.5vw;
+}
+
+.fat img:hover {
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.609));
+}
+
+#fat-hover-info {
+    display: none;
+    position: absolute;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.404);
+    border-radius: 30px;
+    left: 50vw;
+    top: 45vh;
+    width: 30vw;
+    padding: 30px;
+}
+
+
+
+
+
+
+
+#sod-box {
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 0px;
+    border-radius: 20px;
+    position: absolute;
+    bottom: 15vh;
+    left: 55vw;
+    height: 40vh;
+    width: 7.5vw;
+    background-image: linear-gradient(to top right, rgb(111, 66, 216), rgb(75, 147, 255));
+}
+
+#cho-box {
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 0px;
+    border-radius: 20px;
+    position: absolute;
+    bottom: 15vh;
+    left: 72.5vw;
+    height: 40vh;
+    width: 7.5vw;
+    background-image: linear-gradient(to top right, rgb(111, 66, 216), rgb(75, 147, 255));
+}
+
+#sod-box p, #cho-box p {
+    opacity: 0;
+}
+
+#sod-box-ex {
+    opacity: 0;
+    color: white;
+    width: 18vw;
+    text-align: center;
+    position: absolute;
+    bottom: 8vh;
+    left: 50vw;
+}
+
+#cho-box-ex {
+    opacity: 0;
+    color: white;
+    width: 18vw;
+    text-align: center;
+    position: absolute;
+    bottom: 8vh;
+    left: 67.5vw;
+}
+
+#oth-hover {
+    cursor: pointer;
+    opacity: 0;
+    position: absolute;
+    width: 50px;
+    right: 7.5vw;
+}
+
+#oth-hover:hover {
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.609));
+}
+
+#oth-hover-info {
+    display: none;
+    position: absolute;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.404);
+    border-radius: 30px;
+    left: 50vw;
+    top: 45vh;;
+    width: 30vw;
+    padding: 30px;
+}
+
+
+
+
+nav {
+    display: none;
+}
+
+nav button {
+    display: none;
+}
+
+nav a {
+    display: none;
+}

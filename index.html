@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/favicon.png" >
+    <title>Food Inspection</title>
+    <!-- Media query for narrow browser width -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" media="only screen and (max-width: 850px)" href="mobile.css">
+
+    <!-- Media query for full browser width -->
+    <link rel="stylesheet" media="only screen and (min-width: 851px)" href="desktop.css">
+</head>
+<body>
+    <div class="homepage">
+        <div class="hamburger-part">
+            <div id="hamburger-self">
+                <img class="hamburger" src="images/h1.png">
+                <img class="hamburger" src="images/h2.png">
+                <img class="hamburger" id="cheese" src="images/h3.png">
+                <img class="hamburger" src="images/h4.png">
+                <img class="hamburger" id="bread" src="images/h5.png"></div>        
+            </div>
+        <div class="search-part">
+            <input id="searchbar" type="text" placeholder="Food to be inspected" onchange="searchReady(this.value)"/>
+            <img id="search" src="images/search-icon.png">
+            <div class="guess">
+                <p id="guess1" class="guess-word">Apple</p>
+                <p id="guess2" class="guess-word">Egg</p>
+                <p id="guess3" class="guess-word">Milk</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading">
+        <video src="video/loading.mp4" muted autoplay loop></video>
+    </div>
+
+    <div class="content">
+        <div id="hamburger-self2">
+            <img id="cal" class="hamburger2" src="images/h1.png" onclick="infoSelect('cal')">
+            <img id="vit" class="hamburger2" src="images/h2.png" onclick="infoSelect('vit')">
+            <img id="pro" class="hamburger2" src="images/h3.png" onclick="infoSelect('pro')">
+            <img id="fat" class="hamburger2" src="images/h4.png" onclick="infoSelect('fat')">
+            <img id="oth" class="hamburger2" src="images/h5.png" onclick="infoSelect('oth')">
+        </div>
+        <div class="info-sign">
+            <p id="cali" class="info" onclick="infoSelect('cal')">Calories</p>
+            <p id="viti" class="info" onclick="infoSelect('vit')">Vitamin</p>
+            <p id="proi" class="info" onclick="infoSelect('pro')">Protein</p>
+            <p id="fati" class="info" onclick="infoSelect('fat')">Fat</p>
+            <p id="othi" class="info" onclick="infoSelect('oth')">Other info</p>
+        </div>
+        <div class="data">
+            <p id="instruction">See the inspection result</p>
+
+            <div class="calories">
+                <div id="cal-box">
+                    <p id="cal-box-in"></p>
+                </div>
+                <p id="cal-box-ex">Calories in </p>
+                <div id="cal-apple-box">
+                    <p id="cal-apple-box-in">95 Cal</p>
+                </div>
+                <p id="cal-apple-box-ex">Calories in a medium apple</p>
+                <img id="cal-hover" src="images/info-icon.png">
+                <p id="cal-hover-info">
+                    Estimates range from 1,600 to 2,400 calories per day for adult women and 2,000 to 3,000 calories per day for adult men. <br><br>
+                    Within each age and sex category, the low end of the range is for sedentary individuals; the high end of the range is for active individuals.
+                </p>
+            </div>
+
+            <div class="vitamin">
+                <div id="vit-a-box">
+                    <p id="vit-a-box-in"></p>
+                </div>
+                <p id="vit-a-box-ex">Daily value percentage of Vitamin A</p>
+                <div id="vit-c-box">
+                    <p id="vit-c-box-in">40%</p>
+                </div>
+                <p id="vit-c-box-ex">Daily value percentage of Vitamin C</p>
+                <img id="vit-hover" src="images/info-icon.png">
+                <p id="vit-hover-info">
+                    Vitamin A supports growth and bone development, vision, reproduction, and development and maintenance of skin tissue. <br><br>
+                    Vitamin C is needed by the body to form collagen. According to the NIH, the body also uses vitamin C to make skin, tendons, ligaments and blood vessels. It also uses this vitamin to repair and maintain cartilage, bones and teeth, to heal wounds and to form scar tissue.
+                </p>
+            </div>
+
+            <div class="protein">
+                <div id="pro-box">
+                    <p id="pro-box-in"></p>
+                </div>
+                <p id="pro-box-ex">Protein in </p>
+                <div id="pro-egg-box">
+                    <p id="pro-egg-box-in">7g</p>
+                </div>
+                <p id="pro-egg-box-ex">Protein in an extra large egg</p>
+                <img id="pro-hover" src="images/info-icon.png">
+                <p id="pro-hover-info">
+                    Protein is essential to good health. <br><br>
+                    The dietary reference intake is 0.8 grams of protein per kilogram of body weight. <br><br>
+                    This amounts to: 56 grams per day for the average sedentary man. 46 grams per day for the average sedentary woman.
+                </p>
+            </div>
+
+            <div class="fat">
+                <div id="fat-box">
+                    <p id="fat-box-in"></p>
+                </div>
+                <p id="fat-box-ex">Fat in </p>
+                <div id="fat-egg-box">
+                    <p id="fat-egg-box-in">7g</p>
+                </div>
+                <p id="fat-egg-box-ex">Fat in an extra large egg</p>
+                <img id="fat-hover" src="images/info-icon.png">
+                <p id="fat-hover-info">
+                    Too much saturated fat can increase the amount of cholesterol in your blood, which can increase your risk of developing coronary heart disease. <br><br>
+                    The dietary reference intake for fat in adults is 20% to 35% of total calories from fat. <br><br>
+                    That is about 44 grams to 77 grams of fat per day if you eat 2,000 calories a day. It is recommended to eat more of some types of fats because they provide health benefits.
+                </p>
+            </div>
+
+            <div class="other">
+                <div id="sod-box">
+                    <p id="sod-box-in"></p>
+                </div>
+                <p id="sod-box-ex">Sodium</p>
+                <div id="cho-box">
+                    <p id="cho-box-in">40%</p>
+                </div>
+                <p id="cho-box-ex">Cholesterol</p>
+                <img id="oth-hover" src="images/info-icon.png">
+                <p id="oth-hover-info">
+                    Excess sodium increases blood pressure because it holds excess fluid in the body, and that creates an added burden on the heart. Too much sodium will increase your risk of stroke, heart failure, osteoporosis, stomach cancer and kidney disease. <br><br>
+                    Cholesterol is a waxy substance found in blood. Body needs cholesterol to build healthy cells, but high levels of cholesterol can increase the risk of heart disease. With high cholesterol, it can develop fatty deposits in blood vessels.
+                </p>
+            </div>
+
+            
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+        <nav class="navbar navbar-light amber lighten-4 mb-4">
+            
+            <button id="hButton" class="navbar-toggler first-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent20"
+              aria-controls="navbarSupportedContent20" aria-expanded="false" aria-label="Toggle navigation">
+              <div class="animated-icon1"><span></span><span></span><span></span></div>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent20">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" onclick="infoSelect('cal')">Calories<span class="sr-only"> （当前） </span></a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" onclick="infoSelect('vit')">Vitamin</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" onclick="infoSelect('pro')">Protein</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" onclick="infoSelect('fat')">Fat</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" onclick="infoSelect('oth')">Other info</a>
+                </li>
+              </ul>
+            </div>
+          
+          </nav>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
