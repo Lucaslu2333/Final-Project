@@ -7,6 +7,10 @@ var globalPro;
 var globalVa;
 var globalVc;
 
+function reloadPage(){
+      location.reload();
+}
+
 $(function checkInputAction() {
     $("#searchbar").bind('input propertychange', function() {
         var wordGuess = $("#searchbar").val();
@@ -359,7 +363,10 @@ function changeCal() {
         index = 5;
     } else if (index > 80) {
         index = 80;
-    }
+    };
+    if (index <=40 ) {
+        $("#cal-box").css({"background-image":"linear-gradient(to top right, rgb(192, 255, 75), rgb(122, 255, 173))"})
+    };
     console.log(index);
     $("#cal-box").css("height",index+"vh")
 }
@@ -395,7 +402,11 @@ function changePro() {
         index = 5;
     } else if (index > 80) {
         index = 80;
-    }
+    };
+
+    if (index >=40 ) {
+        $("#pro-box").css({"background-image":"linear-gradient(to top right, rgb(192, 255, 75), rgb(122, 255, 173))"})
+    };
     console.log(index);
     $("#pro-box").css("height",index+"vh")
 }
@@ -409,7 +420,11 @@ function changeFat() {
         index = 5;
     } else if (index > 80) {
         index = 80;
-    }
+    };
+
+    if (index <=40 ) {
+        $("#fat-box").css({"background-image":"linear-gradient(to top right, rgb(192, 255, 75), rgb(122, 255, 173))"})
+    };
     console.log(index);
     $("#fat-box").css("height",index+"vh")
 }

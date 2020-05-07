@@ -11,7 +11,8 @@
 
 body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
     display: flex;
     flex-wrap: nowrap;
 }
@@ -57,9 +58,8 @@ body {
 
 .guess {
     position: absolute;
-    left: 20vw;
+    width: 100vw;
     top: 60vh;
-    margin: auto 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -68,7 +68,7 @@ body {
 
 .guess-word {
     opacity: 0;
-    width: 40vw;
+    width: 60vw;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -165,6 +165,19 @@ body {
     display: none;
 }
 
+#refresh-button {
+    max-width: 80px;
+    position: absolute;
+    font-size: 15px;
+    top: 20px;
+    left: 15px;
+    color: white;
+    border-radius: 100px;
+    border: 1px solid white;
+    outline: none;
+    background: none;
+    padding: 7px 15px;
+}
 
 
 

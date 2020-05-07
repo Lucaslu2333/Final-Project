@@ -90,7 +90,6 @@ body {
 #searchbar {
     position: absolute;
     display: none;
-
     width: 20vw;
     height: 60px;
     outline-style: none ;
@@ -248,7 +247,18 @@ body {
     filter: drop-shadow(0 0 10px rgba(32, 32, 32, 0.26));
 }
 
-
+#refresh-button {
+    position: absolute;
+    font-size: 17px;
+    top: 20px;
+    left: 20px;
+    color: white;
+    border-radius: 50px;
+    border: 1px solid white;
+    outline: none;
+    background: none;
+    padding: 7px 15px;
+}
 
 
 
